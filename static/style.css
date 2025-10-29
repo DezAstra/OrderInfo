@@ -1,0 +1,237 @@
+/* static/style.css */
+
+/* Фирменные цвета */
+:root {
+    --color-purple-monochrome: #8A2BE2; /* Pantone 675C */
+    --color-fuchsia: #FF00FF;          /* Pantone 2395C */
+    --color-purple: #9370DB;           /* Pantone 254C */
+    --color-dark-purple: #4B0082;      /* Pantone 2617C */
+    --color-background: #f4f4f4;
+    --color-text: #333;
+    --color-white: #ffffff;
+    --color-border: #ddd;
+    --color-error: #dc3545;
+}
+
+/* Базовые стили */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--color-white);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Шапка */
+.header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--color-purple-monochrome);
+    margin-bottom: 30px;
+}
+
+.header-title {
+    color: var(--color-purple-monochrome);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.header-subtitle {
+    color: var(--color-purple);
+    font-size: 1.2em;
+}
+
+/* Основной контент */
+.main-content {
+    padding: 0 20px;
+}
+
+/* Секции */
+.search-section, .order-data-section, .error-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: var(--color-dark-purple);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 5px;
+}
+
+/* Форма поиска */
+.search-form {
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--color-dark-purple);
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-purple-monochrome);
+    box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.2); /* var(--color-purple-monochrome) с прозрачностью */
+}
+
+.form-button {
+    padding: 12px 20px;
+    background-color: var(--color-purple-monochrome);
+    color: var(--color-white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: var(--color-dark-purple);
+}
+
+/* Секция данных заказа */
+.order-data-section.hidden {
+    display: none;
+}
+
+.order-data {
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.order-details {
+    margin-bottom: 20px;
+}
+
+.order-details h3 {
+    color: var(--color-purple);
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.order-details dl {
+    display: grid;
+    grid-template-columns: max-content auto;
+    gap: 5px 15px;
+}
+
+.order-details dt {
+    font-weight: bold;
+    color: var(--color-dark-purple);
+}
+
+.order-details dd {
+    margin: 0;
+}
+
+/* Таблица товаров */
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    overflow-x: auto;
+    display: block;
+}
+
+.items-table th, .items-table td {
+    border: 1px solid var(--color-border);
+    padding: 12px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.items-table th {
+    background-color: var(--color-purple-monochrome);
+    color: var(--color-white);
+    font-weight: bold;
+}
+
+.items-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.items-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+/* Секция ошибок */
+.error-section.hidden {
+    display: none;
+}
+
+.error-message {
+    padding: 15px;
+    background-color: #f8d7da;
+    color: var(--color-error);
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .header-title {
+        font-size: 2em;
+    }
+
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-input, .form-button {
+        width: 100%;
+    }
+
+    .items-table {
+        font-size: 0.85em;
+    }
+
+    .items-table th, .items-table td {
+        padding: 8px;
+    }
+}

@@ -1,0 +1,36 @@
+services:
+  order-postgres:
+    image: postgres:18 
+    container_name: order-postgres 
+    environment:
+      POSTGRES_DB: order_db 
+      POSTGRES_USER: order_user 
+      POSTGRES_PASSWORD: admin 
+    ports:
+      - "5432:5432" 
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    networks:
+      - order-network 
+
+  nats-streaming:
+    image: nats-streaming:latest 
+    container_name: nats-streaming 
+    ports:
+      - "4222:4222"
+      - "4223:4223" # используется в config.go для NATS Streaming
+      - "8222:8222"
+    command:
+      - "-p" # Указываем порт для клиентов STAN
+      - "4223" # <-- ВАЖНО: NATS Streaming будет слушать клиентские подключения на порту 4223 ВНУТРИ контейнера
+      - "-m"
+      - "8222"
+
+
+volumes:
+  postgres_data:
+  nats_data:
+
+networks: 
+  order-network:
+    driver: bridge

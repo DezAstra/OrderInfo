@@ -1,0 +1,42 @@
+<!-- static/index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWB LABS L0</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header-title">RWB LABS L0</h1>
+            <p class="header-subtitle">Сервис отображения информации о заказах</p>
+        </header>
+
+        <main class="main-content">
+            <section class="search-section">
+                <h2 class="section-title">Поиск заказа</h2>
+                <form id="orderForm" class="search-form">
+                    <label for="orderUid" class="form-label">Введите UID заказа:</label>
+                    <div class="input-group">
+                        <input type="text" id="orderUid" name="orderUid" placeholder="b563feb7b2b84b6test" required class="form-input">
+                        <button type="submit" class="form-button">Получить заказ</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="orderDataSection" class="order-data-section hidden">
+                <h2 class="section-title">Информация о заказе</h2>
+                <div id="orderData" class="order-data"></div>
+            </section>
+
+            <section id="errorMessageSection" class="error-section hidden">
+                <div id="errorMessage" class="error-message"></div>
+            </section>
+        </main>
+
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
