@@ -97,9 +97,14 @@ go test -v ./...
 ```bash
 scripts\wrk_run.bat
 ```
+Результат WRK-теста (4 потока, 150 соединений, 20с)
+<img width="626" height="199" alt="image" src="https://github.com/user-attachments/assets/c8c03ea7-ab5a-4df7-9e25-bbf56500b7e2" />
+
 ```bash
 scripts\vegeta_run.bat
 ```
+Результат vegeta-теста (1000 RPS, 20с)
+<img width="909" height="119" alt="image" src="https://github.com/user-attachments/assets/9b65f920-5d3b-4d92-95c6-561150960ddd" />
 
 ## Структура проекта
 
